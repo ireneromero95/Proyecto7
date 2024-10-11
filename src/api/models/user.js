@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema(
       required: true,
       enum: ['admin', 'user'],
       default: 'user'
+    },
+    plataformaUsada: {
+      type: mongoose.Types.ObjectId,
+      required: false,
+      ref: 'plataformas'
     }
   },
   {

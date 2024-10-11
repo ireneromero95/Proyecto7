@@ -8,6 +8,7 @@ const register = async (req, res, next) => {
     const newUser = new User({
       userName: req.body.userName,
       password: req.body.password,
+      plataformaUsada: req.body.plataformaUsada,
       rol: 'user'
     });
 
@@ -70,7 +71,8 @@ const deleteSelf = async (req, res, next) => {
 //getuser
 const getUser = async (req, res, next) => {
   try {
-    const users = await User.find();
+    //Aqui no se pone el nombre de la coleccion sino del atributo del objeto
+    const users = await User.find().populate('plataformaUsada');
     return res.status(200).json(users);
   } catch (error) {
     return res.status(400).json(error);
