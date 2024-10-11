@@ -15,6 +15,6 @@ usersRoutes.post('/register', register);
 usersRoutes.post('/login', login);
 usersRoutes.delete('/:id', [isAdmin], deleteUser);
 usersRoutes.put('/:id', [isAdmin], updateUser);
-usersRoutes.delete('/:id', deleteSelf);
+usersRoutes.delete('/a/:id', [isSelf], deleteSelf);
 
 module.exports = usersRoutes;

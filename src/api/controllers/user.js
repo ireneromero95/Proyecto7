@@ -59,7 +59,6 @@ const deleteUser = async (req, res, next) => {
 
 const deleteSelf = async (req, res, next) => {
   try {
-    console.log('Llega a la funcion');
     const { id } = req.params;
     const userDeleted = await User.findByIdAndDelete(id);
     return res.status(200).json({ mensaje: 'Usuario eliminado', userDeleted });
